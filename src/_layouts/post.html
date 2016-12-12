@@ -1,0 +1,15 @@
+---
+layout: page
+---
+<div class="post">
+  <img src="{{ page.background_image }}" alt="{{ page.title }}" class="post-hero_img">
+  <div class="post-bg_hero_img"></div>
+
+  <div class="post-container">
+    <a href="/">back</a>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-content">
+      {{ content | markdownify }}
+    </div>
+  </div>
+</div>

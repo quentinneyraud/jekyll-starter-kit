@@ -1,0 +1,7 @@
+_site
+.sass-cache
+.jekyll-metadata
+public
+node_modules
+src/assets/javascripts/bundle.js
+.idea

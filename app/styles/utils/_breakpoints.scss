@@ -1,0 +1,35 @@
+$xsmall-screen: 480px;
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+$xlarge-screen: 1400px;
+
+@mixin breakpoint-xsmall {
+  @media only screen and (min-width: $xsmall-screen) {
+    @content;
+  }
+}
+
+@mixin breakpoint-small {
+  @media only screen and (min-width: $small-screen) {
+    @content;
+  }
+}
+
+@mixin breakpoint-medium {
+  @media only screen and (min-width: $medium-screen) {
+    @content;
+  }
+}
+
+@mixin breakpoint-large {
+  @media only screen and (min-width: $large-screen) {
+    @content;
+  }
+}
+
+@mixin breakpoint-xlarge {
+  @media only screen and (min-width: $xlarge-screen) {
+    @content;
+  }
+}

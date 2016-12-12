@@ -1,0 +1,61 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: Montserrat, sans-serif;
+}
+
+a,
+a:visited,
+a:link,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.svg-list{
+  display: none;
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+::selection {
+  background-color: #ffc066;
+  color: #469cff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <main id="barba-wrapper">
+      {{ content }}
+    </main>
+
+    {% if jekyll.environment == "production" %}
+    <script type="text/javascript" src="/assets/app.js" charset="utf-8"></script>
+    {% else %}
+    <script type="text/javascript" src="http://localhost:8798/app.js" charset="utf-8"></script>
+    {% endif %}
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin border($top-color: #000000, $right-color: #000000, $bottom-color: #000000, $left-color: #000000) {
+  border-top:    solid 1px $top-color;
+  border-left:   solid 1px $left-color;
+  border-right:  solid 1px $right-color;
+  border-bottom: solid 1px $bottom-color;
+}
+
+@mixin keep-image-aspect(){
+  image-rendering: optimizeSpeed;
+  image-rendering: pixellated;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode:nearest-neighbor;
+}
