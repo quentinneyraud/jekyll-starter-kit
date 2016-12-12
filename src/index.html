@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Accueil
+title: Home
 namespace: Home
 permalink: '/'
 ---
@@ -8,10 +8,10 @@ permalink: '/'
 <ul class="posts">
   {% for post in site.posts %}
   <li class="post">
-    <div class="home-post-image" style="background: url({{ post.background_image }})"></div>
-    <p class="home-post-title">{{ post.title }}</p>
-    <span class="home-post-date">- {{ post.date | date: '%b %-d, %Y' }} -</span>
-    <a href="{{ post.url | prepend: site.baseurl }}" class="home-post-link" data-transition="test">Lire la suite</a>
+    <div class="post-image" style="background: url({{ post.background_image }})"></div>
+    <p class="post-title">{{ post.title }}</p>
+    <span class="post-date">- {{ post.date | date: '%b %-d, %Y' }} -</span>
+    <a href="{{ post.url | prepend: site.baseurl }}" class="post-link" data-transition="test">Read</a>
   </li>
   {% endfor %}
 </ul>

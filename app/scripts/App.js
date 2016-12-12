@@ -4,7 +4,6 @@ import BarbaWrapper from './BarbaWrapper'
 import HomePage from './pages/HomePage'
 import PostPage from './pages/PostPage'
 import AboutPage from './pages/AboutPage'
-import ContactPage from './pages/ContactPage'
 
 const DOM_READY_EVENT = 'dom-ready'
 const FONTS_READY_EVENT = 'fonts-ready'
@@ -27,7 +26,6 @@ export default class App {
     })
       .match('HomePage', new HomePage())
       .match('AboutPage', new AboutPage())
-      .match('ContactPage', new ContactPage())
       .match('PostPage', new PostPage())
       .start()
   }
