@@ -16,8 +16,9 @@ export default class HomePage extends Page {
     super.onEnter()
   }
 
-  getTransition (option) {
-    switch (option.transition) {
+  getTransition (options) {
+    dbg(options)
+    switch (options.datas.transition) {
       case 'custom-transition':
         return {
           start: function () {

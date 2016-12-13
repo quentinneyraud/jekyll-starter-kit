@@ -17,6 +17,9 @@ export default class App {
     this.waitFontsReady() // comment if you don't load fonts with webfontloader
   }
 
+  /**
+   * Instanciate BarbaWrapper
+   */
   start () {
     dbg('start')
 
@@ -30,6 +33,9 @@ export default class App {
       .start()
   }
 
+  /**
+   * Wait for DOM ready before call start()
+   */
   waitDomReady () {
     this.events.push(DOM_READY_EVENT)
     domReady(() => {
@@ -38,6 +44,9 @@ export default class App {
     })
   }
 
+  /**
+   * Wait for fonts ready before call start()
+   */
   waitFontsReady () {
     this.events.push(FONTS_READY_EVENT)
     WebFont.load({
@@ -53,6 +62,11 @@ export default class App {
     })
   }
 
+  /**
+   * Check wainting events
+   *
+   * @param key
+   */
   onLoadEventSuccess (key) {
     this.events.splice(this.events.indexOf(key), 1)
     if (this.events.length === 0) {
