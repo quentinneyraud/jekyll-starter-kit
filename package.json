@@ -5,7 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline' 'JEKYLL_ENV=development jekyll serve --watch'",
+    "dev": "concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'JEKYLL_ENV=development jekyll serve --watch'",
     "build": "./node_modules/webpack/bin/webpack.js && JEKYLL_ENV=production jekyll build"
   },
   "author": "Quentin Neyraud",
