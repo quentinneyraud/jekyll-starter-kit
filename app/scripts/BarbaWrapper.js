@@ -68,19 +68,20 @@ export default class BarbaWrapper {
   }
 
   /**
-   * Return a hide/show transition
+   * Return a fade transition
    *
    * @returns {{start: start, finish: finish}}
    */
   getDefaultTransition () {
+    // Note : Do not use arrow function to keep Barba.BaseTransition context
     return {
       start: function () {
-        this.newContainerLoading.then(this.finish.bind(this))
+        this.newContainerLoading
+          .then(this.transition.bind(this))
       },
-
-      finish: function () {
-        document.body.scrollTop = 0
-        this.done()
+      transition: function () {
+        TweenMax.to(this.oldContainer, 1, {xPercent: -100})
+        TweenMax.fromTo(this.newContainer, 1, {xPercent: 100}, {xPercent: 0, autoAlpha: 1, onComplete: this.done.bind(this)})
       }
     }
   }
