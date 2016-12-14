@@ -1,23 +1,7 @@
-.pageHome {
-  .home-header {
-    position: relative;
-    height: 500px;
+.page-home {
+
+  .page-header {
     background: url(../../src/img/_commons/home_background.jpg) no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
-
-    &-title {
-      @include center();
-      color: $white;
-      font-size: 72px;
-      text-shadow: 2px 2px 5px #000;
-    }
-  }
-
-  .posts-container {
-    margin: 0 auto;
-    width: 960px;
   }
 
   .posts {
@@ -45,9 +29,7 @@
         width: 100%;
         height: 100%;
         z-index: -2;
-        background-size: cover !important;
-        background-position-x: center !important;
-        background-position-y: center !important;
+        @include background-cover();
         transition: transform 1s $easeInOutQuad;
       }
 

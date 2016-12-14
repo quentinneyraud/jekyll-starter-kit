@@ -15,6 +15,7 @@ export default class HomePage extends Page {
 
   onEnter () {
     super.onEnter()
+    selectClass('nav-item', true).forEach(el => el.classList.remove('active'))
     selectClass('nav-item', true)[0].classList.add('active')
   }
 

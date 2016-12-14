@@ -12,11 +12,17 @@
   border-bottom: solid 1px $bottom-color;
 }
 
-@mixin keep-image-aspect(){
+@mixin keep-image-aspect() {
   image-rendering: optimizeSpeed;
   image-rendering: pixellated;
   image-rendering: -o-crisp-edges;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: optimize-contrast;
   -ms-interpolation-mode:nearest-neighbor;
+}
+
+@mixin background-cover() {
+  background-size: cover !important;
+  background-position-x: center !important;
+  background-position-y: center !important;
 }

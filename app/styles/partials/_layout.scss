@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.page-header {
+  position: relative;
+  height: 400px;
+  @include background-cover();
+
+  &-title {
+    @include center();
+    color: $white;
+    font-size: 72px;
+    text-shadow: 2px 2px 5px #000;
+  }
+}
