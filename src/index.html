@@ -6,14 +6,22 @@ permalink: '/'
 meta_description: description de la home
 ---
 
+<div class="home-header">
+  <h1 class="home-header-title">Jekyll starter</h1>
+</div>
+
 <div class="posts-container">
   <ul class="posts">
     {% for post in site.posts %}
     <li class="post">
       <div class="post-image" style="background: url({{ post.background_image | prepend: site.baseurl_image }})"></div>
-      <p class="post-title">{{ post.title }}</p>
-      <span class="post-date">- {{ post.date | date: '%b %-d, %Y' }} -</span>
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link" data-transition="test">Read</a>
+
+      <div class="post-infos">
+        <p class="post-title">{{ post.title }}</p>
+        <span class="post-date">{{ post.date | date: '%-d/%m/%Y' }}</span>
+      </div>
+
+      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link" data-transition="test">Read more</a>
     </li>
     {% endfor %}
   </ul>

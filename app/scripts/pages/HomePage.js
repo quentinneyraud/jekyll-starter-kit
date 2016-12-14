@@ -1,4 +1,5 @@
 import Page from './Page'
+import {selectClass} from '../utils/index'
 
 const dbg = debug('app:HomePage')
 
@@ -14,6 +15,7 @@ export default class HomePage extends Page {
 
   onEnter () {
     super.onEnter()
+    selectClass('nav-item', true)[0].classList.add('active')
   }
 
   getTransition (options) {
