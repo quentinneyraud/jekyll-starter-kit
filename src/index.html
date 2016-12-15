@@ -6,23 +6,8 @@ permalink: '/'
 meta_description: ~
 ---
 
-<div class="page-header">
-  <h1 class="page-header-title">Jekyll starter</h1>
+<div class="titles">
+  <h1 class="title">Shift</h1>
+  <h1 class="subtitle">Capital</h1>
 </div>
-
-<div class="container">
-  <ul class="posts">
-    {% for post in site.posts %}
-    <li class="post">
-      <div class="post-image" style="background: url({{ post.background_image | prepend: site.baseurl_image }})"></div>
-
-      <div class="post-infos">
-        <p class="post-title">{{ post.title }}</p>
-        <span class="post-date">{{ post.date | date: '%-d/%m/%Y' }}</span>
-      </div>
-
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link" data-transition="test">Read more</a>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+<canvas id="canvas" width="500" height="500"></canvas>
