@@ -40,7 +40,6 @@
     "barba.js": "^1.0.0",
     "domready": "^1.0.8",
     "gsap": "^1.19.0",
-    "raf": "^3.3.0",
     "webfontloader": "^1.6.26",
     "webpack-dev-server": "^1.16.2"
   }
