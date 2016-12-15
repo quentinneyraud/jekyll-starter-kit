@@ -2,7 +2,8 @@ import Barba from 'barba.js'
 
 const DEFAULT_OPTIONS = {
   cache: false,
-  prefetch: false
+  prefetch: false,
+  navId: 'nav'
 }
 
 export default class BarbaWrapper {
@@ -39,7 +40,13 @@ export default class BarbaWrapper {
     Barba.Pjax.start()
     if (this.options.prefetch) Barba.Prefetch.init()
 
+    // Transitions
     Barba.Dispatcher.on('linkClicked', this.onBarbaLinkClicked.bind(this))
+
+    // Update links
+    this.navElement = document.getElementById(this.options.navId)
+    this.onBarbaNewPageReady()
+    Barba.Dispatcher.on('newPageReady', this.onBarbaNewPageReady.bind(this))
   }
 
   /**
@@ -92,5 +99,18 @@ export default class BarbaWrapper {
           })
       }
     }
+  }
+
+  /**
+   * Add active class on all links matching current url
+   */
+  onBarbaNewPageReady () {
+    Array.from(this.navElement.getElementsByTagName('a')).forEach((link) => {
+      if (link.getAttribute('href') === window.location.pathname) {
+        link.classList.add('active')
+      } else {
+        link.classList.remove('active')
+      }
+    })
   }
 }
