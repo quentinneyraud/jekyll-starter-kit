@@ -80,8 +80,16 @@ export default class BarbaWrapper {
           .then(this.transition.bind(this))
       },
       transition: function () {
-        TweenMax.to(this.oldContainer, 1, {xPercent: -100})
-        TweenMax.fromTo(this.newContainer, 1, {xPercent: 100}, {xPercent: 0, autoAlpha: 1, onComplete: this.done.bind(this)})
+        new TimelineMax()
+          .to('.overflow-transition', 0.5, {width: window.innerWidth})
+          .set('.overflow-transition', {left: 0})
+          .set(this.oldContainer, {autoAlpha: 0})
+          .set(this.newContainer, {autoAlpha: 1})
+          .to('.overflow-transition', 0.5, {width: 0})
+          .set('.overflow-transition', {right: 0, left: 'auto'})
+          .call(() => {
+            this.done()
+          })
       }
     }
   }

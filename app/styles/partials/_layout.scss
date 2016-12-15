@@ -22,3 +22,13 @@
     text-shadow: 2px 2px 5px #000;
   }
 }
+
+.overflow-transition {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #fff;
+}
