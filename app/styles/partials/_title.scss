@@ -1,0 +1,129 @@
+.page-title {
+
+  section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #clipping {
+    h1 {
+      font-size: 400px;
+      @include center();
+      background: url(https://media.giphy.com/media/3oAt1OlUKM1flwPz1K/giphy.gif) no-repeat;
+      @include background-cover();
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+  }
+
+  #full {
+    h1 {
+      font-size: 900px;
+      @include center();
+    }
+  }
+
+  #sheets {
+
+    h1 {
+      @include center();
+      font-size: 400px;
+
+      &:before, &:after {
+        content: attr(data-title);
+        position: absolute;
+        font-size: 400px;
+        color: #2D2D2D;
+      }
+
+      &:before {
+        top: -10px;
+        left: -5px;
+      }
+
+      &:after {
+        top: 10px;
+        left: 5px;
+        z-index: -2;
+      }
+    }
+  }
+
+  .cut {
+    $x-top-1: 50%;
+    $x-top-2: 80%;
+
+    $x-bot-1: 20%;
+    $x-bot-2: 60%;
+
+    h1 {
+      @include center();
+      font-size: 400px;
+      white-space: nowrap;
+
+      &:nth-child(1) {
+        clip-path: polygon(0% 0%, $x-top-1 0%, $x-bot-1 100%, 0% 100%);
+      }
+
+      &:nth-child(2) {
+        clip-path: polygon($x-top-1 0%, $x-top-2 0%, $x-bot-2 100%, $x-bot-1 100%);
+      }
+
+      &:nth-child(3) {
+        clip-path: polygon($x-top-2 0%, 100% 0%, 100% 100%, $x-bot-2 100%);
+      }
+    }
+
+    &.third {
+      h1 {
+        background-color: #fff;
+      }
+
+      h2 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(0, -50%);
+        display: inline-block;
+        overflow-x: hidden;
+        z-index: -2;
+        font-size: 250px;
+        white-space: nowrap;
+        font-weight: 100;
+      }
+    }
+
+    &.fourth {
+      h1 {
+        font-size: 350px;
+      }
+
+      a {
+        font-size: 50px;
+        position: absolute;
+        bottom: 150px;
+
+        &:nth-of-type(1) {
+          left: 40vw;
+        }
+
+        &:nth-of-type(2) {
+          left: 60vw;
+        }
+      }
+    }
+  }
+
+  #morph {
+    svg {
+      @include center();
+    }
+  }
+
+  #morph-cutted {
+    svg {
+      @include center();
+    }
+  }
+}

@@ -14,7 +14,7 @@
   &-item {
     position: relative;
     display: inline-block;
-    color: $white;
+    color: $black;
     margin: 0 15px;
     text-transform: uppercase;
     font-size: 18px;
@@ -25,7 +25,7 @@
       position: absolute;
       width: 0;
       height: 2px;
-      background-color: $white-mid-opacity;
+      background-color: $black-mid-opacity;
       top: 110%;
       left: 0;
       transition: width 0.5s $easeInOutQuad;
@@ -34,7 +34,7 @@
     &.active {
       &:after {
         width: 100%;
-        background-color: $white;
+        background-color: $black;
       }
     }
 
