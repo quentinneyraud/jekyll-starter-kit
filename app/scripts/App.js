@@ -2,9 +2,8 @@ import domReady from 'domready'
 import WebFont from 'webfontloader'
 import BarbaWrapper from './BarbaWrapper'
 import HomePage from './pages/HomePage'
-import InspirationsPage from './pages/InspirationsPage'
-import ElementsPage from './pages/ElementsPage'
-import TitlePage from './pages/TitlePage'
+import PostPage from './pages/PostPage'
+import AboutPage from './pages/AboutPage'
 
 const DOM_READY_EVENT = 'dom-ready'
 const FONTS_READY_EVENT = 'fonts-ready'
@@ -29,9 +28,8 @@ export default class App {
       prefetch: true
     })
       .match('HomePage', new HomePage())
-      .match('InspirationsPage', new InspirationsPage())
-      .match('ElementsPage', new ElementsPage())
-      .match('TitlePage', new TitlePage())
+      .match('AboutPage', new AboutPage())
+      .match('PostPage', new PostPage())
       .start()
   }
 
