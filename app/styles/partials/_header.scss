@@ -19,6 +19,12 @@
     text-transform: uppercase;
     font-size: 18px;
     padding: 5px 0;
+  }
+
+  &-link {
+    pointer-events: all;
+    width: 100%;
+    height: 100%;
 
     &:after {
       content: '';
@@ -43,11 +49,5 @@
         width: 100%;
       }
     }
-  }
-
-  &-link {
-    pointer-events: all;
-    width: 100%;
-    height: 100%;
   }
 }
