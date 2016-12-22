@@ -9,10 +9,6 @@ export default class PostPage extends Page {
     dbg('Init PostPage')
   }
 
-  initializeElements () {
-    super.initializeElements()
-  }
-
   onEnter () {
     super.onEnter()
     fixImageSeo(selectClass('post-hero_img'), selectClass('post-bg_hero_img'))

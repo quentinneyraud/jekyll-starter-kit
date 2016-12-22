@@ -3,7 +3,7 @@ import Barba from 'barba.js'
 const DEFAULT_OPTIONS = {
   cache: false,
   prefetch: false,
-  navId: 'nav',
+  navId: null,
   refreshOnSameHrefClick: false
 }
 

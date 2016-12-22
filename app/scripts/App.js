@@ -26,7 +26,7 @@ export default class App {
     new BarbaWrapper({
       cache: false,
       prefetch: true,
-      updateNav: true,
+      navId: 'nav',
       refreshOnSameHrefClick: false
     })
       .match('HomePage', new HomePage())
@@ -48,6 +48,7 @@ export default class App {
 
   /**
    * Wait for fonts ready before call start()
+   * see: https://github.com/typekit/webfontloader
    */
   waitFontsReady () {
     this.events.push(FONTS_READY_EVENT)

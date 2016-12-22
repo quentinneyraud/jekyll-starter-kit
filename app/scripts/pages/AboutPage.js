@@ -7,12 +7,4 @@ export default class AboutPage extends Page {
     super()
     dbg('Init AboutPage')
   }
-
-  initializeElements () {
-    super.initializeElements()
-  }
-
-  onEnter () {
-    super.onEnter()
-  }
 }
