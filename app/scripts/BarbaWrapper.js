@@ -3,7 +3,8 @@ import Barba from 'barba.js'
 const DEFAULT_OPTIONS = {
   cache: false,
   prefetch: false,
-  navId: 'nav'
+  navId: 'nav',
+  refreshOnSameLinkClick: false
 }
 
 export default class BarbaWrapper {
@@ -16,6 +17,7 @@ export default class BarbaWrapper {
   constructor (options) {
     this.options = Object.assign({}, DEFAULT_OPTIONS, options)
     this.pages = []
+    this.navLinks = (this.options.navId) ? Array.from(document.getElementById(this.options.navId).getElementsByTagName('a')) : null
     return this
   }
 
@@ -43,10 +45,25 @@ export default class BarbaWrapper {
     // Transitions
     Barba.Dispatcher.on('linkClicked', this.onBarbaLinkClicked.bind(this))
 
+    // Refresh
+    if (!this.options.refreshOnSameLinkClick) {
+      Array.from(document.querySelectorAll('a[href]')).forEach((link) => {
+        link.addEventListener('click', this.onLinkClicked.bind(this))
+      })
+    }
+
     // Update links
-    this.navElement = document.getElementById(this.options.navId)
-    this.onBarbaNewPageReady()
-    Barba.Dispatcher.on('newPageReady', this.onBarbaNewPageReady.bind(this))
+    if (this.navLinks && this.navLinks.length) {
+      this.onBarbaNewPageReady()
+      Barba.Dispatcher.on('newPageReady', this.onBarbaNewPageReady.bind(this))
+    }
+  }
+
+  onLinkClicked (event) {
+    if (event.currentTarget.href === window.location.href) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
   }
 
   /**
@@ -105,7 +122,7 @@ export default class BarbaWrapper {
    * Add active class on all links matching current url
    */
   onBarbaNewPageReady () {
-    Array.from(this.navElement.getElementsByTagName('a')).forEach((link) => {
+    this.navLinks.forEach((link) => {
       if (link.getAttribute('href') === window.location.pathname) {
         link.classList.add('active')
       } else {
