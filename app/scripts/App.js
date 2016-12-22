@@ -27,7 +27,7 @@ export default class App {
       cache: false,
       prefetch: true,
       updateNav: true,
-      refreshOnSameLinkClick: false
+      refreshOnSameHrefClick: false
     })
       .match('HomePage', new HomePage())
       .match('AboutPage', new AboutPage())

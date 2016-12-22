@@ -1,0 +1,16 @@
+.page-post {
+  .post {
+
+    &-back-link {
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+
+    &-title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 80px;
+    }
+  }
+}

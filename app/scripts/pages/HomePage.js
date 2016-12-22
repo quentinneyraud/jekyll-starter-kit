@@ -17,7 +17,6 @@ export default class HomePage extends Page {
   }
 
   getTransition (options) {
-    dbg(options)
     switch (options.datas.transition) {
       case 'custom-transition':
         return {
