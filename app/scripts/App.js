@@ -26,7 +26,8 @@ export default class App {
     new BarbaWrapper({
       cache: false,
       prefetch: true,
-      updateNav: true
+      updateNav: true,
+      refreshOnSameLinkClick: false
     })
       .match('HomePage', new HomePage())
       .match('AboutPage', new AboutPage())
