@@ -6,16 +6,14 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs build-essential
 
 # Ruby
-WORKDIR /tmp
-RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.gz
-RUN tar -xvzf ruby-2.1.5.tar.gz
-WORKDIR ruby-2.1.5/
-RUN ./configure --prefix=/usr/local
-RUN make
-RUN make install
+RUN apt-get -y install ruby ruby-dev rubygems git gcc make \
+	&& git clone https://github.com/rubygems/rubygems.git /home/rubygems/ \
+	&& rm -rf /var/lib/apt/lists/*
 
-# Jekyll
-RUN gem install jekyll --no-ri --no-rdoc
+WORKDIR /home/rubygems
+
+RUN git submodule update --init && ruby setup.rb \
+	&& gem install jekyll
 
 #RUN gem install jekyll bundler --no-ri --no-rdoc
 #RUN bundle install --path vendor
