@@ -75,7 +75,7 @@ addTimeout ()
 clearTimeouts ()          // called on leave completed
 clearIntervals ()         // called on leave completed
 ```
-NOTE: Don't forgot to call `super` methods
+NOTE: Don't forget to call `super` methods
 
 #### BarbaWrapper options
 
