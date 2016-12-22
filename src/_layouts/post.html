@@ -2,11 +2,11 @@
 layout: page
 ---
 <div class="post">
-  <img src="{{ page.background_image }}" alt="{{ page.title }}" class="post-hero_img">
-  <div class="post-bg_hero_img"></div>
+  <img src="{{ page.background_image | prepend: site.baseurl_image }}" alt="{{ page.title }}" class="post-hero_img">
+  <div class="post-bg_hero_img page-header"></div>
 
-  <div class="post-container">
-    <a href="/">back</a>
+  <div class="container">
+    <a class="post-back-link" href="/">↵ Back to home</a>
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-content">
       {{ content | markdownify }}

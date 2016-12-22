@@ -3,7 +3,7 @@ import {fixImageSeo, selectClass} from '../utils/index'
 
 const dbg = debug('app:PostPage')
 
-export default class ProjectPage extends Page {
+export default class PostPage extends Page {
   constructor () {
     super()
     dbg('Init PostPage')
@@ -14,7 +14,7 @@ export default class ProjectPage extends Page {
   }
 
   onEnter () {
-    dbg('on enter')
+    super.onEnter()
     fixImageSeo(selectClass('post-hero_img'), selectClass('post-bg_hero_img'))
   }
 }

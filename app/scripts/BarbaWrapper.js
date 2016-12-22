@@ -4,7 +4,7 @@ const DEFAULT_OPTIONS = {
   cache: false,
   prefetch: false,
   navId: 'nav',
-  refreshOnSameLinkClick: false
+  refreshOnSameHrefClick: false
 }
 
 export default class BarbaWrapper {
@@ -46,7 +46,7 @@ export default class BarbaWrapper {
     Barba.Dispatcher.on('linkClicked', this.onBarbaLinkClicked.bind(this))
 
     // Refresh
-    if (!this.options.refreshOnSameLinkClick) {
+    if (!this.options.refreshOnSameHrefClick) {
       Array.from(document.querySelectorAll('a[href]')).forEach((link) => {
         link.addEventListener('click', this.onLinkClicked.bind(this))
       })
