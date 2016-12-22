@@ -1,0 +1,67 @@
+.markdown {
+
+  a {
+    font-style: italic;
+    text-decoration: underline;
+  }
+
+  ul, p, pre {
+    margin-left: 40px;
+  }
+
+  li {
+    margin: 10px 0;
+  }
+
+  @for $i from 1 through 6 {
+    $invert: 7 - $i;
+
+    h#{$i} {
+      font-size: #{$invert * 7}px;
+      font-weight: 400;
+      margin-top: 20px;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        margin-right: 5px;
+        width: #{$invert * 5}px;
+        height: 1px;
+        background-color: #2D2D2D;
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 15px 0;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+
+  pre {
+    background-color: #000;
+    color: #efefef;
+    margin: 10px 0 10px 40px;
+    border-radius: 5px;
+    padding: 15px;
+
+    code {
+      background-color: transparent;
+      color: inherit;
+      padding: 0;
+    }
+  }
+
+  code {
+    background-color: #efefef;
+    border-radius: 5px;
+    padding: 2px 5px;
+  }
+}

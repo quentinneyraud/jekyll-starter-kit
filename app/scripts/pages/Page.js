@@ -35,8 +35,16 @@ export default class Page {
     this.clearTimeouts()
   }
 
-  getTransition (clickOptions) {}
+  /**
+   * Return
+   * @param options contains el (<a> element) and data attributes
+   */
+  getTransition (options) {}
 
+  /**
+   * Fill $els with body and window elements
+   * called on enter
+   */
   initializeElements () {
     this.$els = {
       window,
@@ -44,7 +52,15 @@ export default class Page {
     }
   }
 
+  /**
+   * Initialize all events
+   * called on enter, after initializeElements()
+   */
   initializeEvents () {}
+
+  /**
+   * Add interval and timeout ids, they will be cleared on leave
+   */
 
   addSetInterval (intervalId) {
     this.intervals.push(intervalId)
