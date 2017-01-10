@@ -34,7 +34,7 @@ Create a file `src/pages/demo.html`
 layout: page
 title: This is a demo page
 namespace: Demo
-permalink: demo
+permalink: demo/
 ---
 ```
 
@@ -55,7 +55,7 @@ new BarbaWrapper({
         ...
       })
       .match(...)
-      .match('DemoPage', new DemoPage())
+      .match('DemoPage', new DemoPage())	// namespace in front matter + 'Page'
       .match(...)
       .start()
 ```
