@@ -1,1 +1,1 @@
-[Demo & docs page](jekyll-starter.quentinneyraud.fr)
+[Demo & docs page](http://jekyll-starter.quentinneyraud.fr)
