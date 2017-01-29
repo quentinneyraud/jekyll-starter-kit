@@ -4,7 +4,7 @@ description: >
   Jekyll starter is a simple Jekyll project using Barba.js to provide page transition without reload.
   It also supports Sass & ES6, bundled with Webpack.
 baseurl: ""
-baseurl_image: "/img/"
+baseurl_image: "/img"
 url: "http://jekyll-starter.quentinneyraud.fr"
 twitter_username: quentin_neyraud
 github_username:  quentinneyraud
