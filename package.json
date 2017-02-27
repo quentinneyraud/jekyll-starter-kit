@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "barba.js": "^1.0.0",
+    "bootstrap": "4.0.0-alpha.6",
     "domready": "^1.0.8",
     "gsap": "^1.19.0",
     "webfontloader": "^1.6.26",
