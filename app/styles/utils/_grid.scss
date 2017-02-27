@@ -1,0 +1,31 @@
+@import '../../../node_modules/bootstrap/scss/_mixins.scss';
+
+//$grid-breakpoints: (
+//  xs: 0,
+//  sm: 544px,
+//  md: 768px,
+//  lg: 992px,
+//  xl: 1200px
+//);
+//@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+
+//$container-max-widths: (
+//  sm: 576px,
+//  md: 720px,
+//  lg: 940px,
+//  xl: 1140px
+//);
+//@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+//$grid-columns:               12 !default;
+$grid-gutter-width-base:     60px;
+//$grid-gutter-widths: (
+//  xs: $grid-gutter-width-base,
+//  sm: $grid-gutter-width-base,
+//  md: $grid-gutter-width-base,
+//  lg: $grid-gutter-width-base,
+//  xl: $grid-gutter-width-base
+//);
+@import '../../../node_modules/bootstrap/scss/_variables.scss';
+@import '../../../node_modules/bootstrap/scss/utilities/visibility';
+@import '../../../node_modules/bootstrap/scss/_grid.scss';
