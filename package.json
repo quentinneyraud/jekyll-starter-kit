@@ -5,8 +5,9 @@
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'JEKYLL_ENV=development jekyll serve --watch'",
-    "build": "./node_modules/webpack/bin/webpack.js && JEKYLL_ENV=production jekyll build"
+    "dev": "npm run build-svg && concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'JEKYLL_ENV=development jekyll serve --watch'",
+    "build": "npm run build-svg && ./node_modules/webpack/bin/webpack.js && JEKYLL_ENV=production jekyll build",
+    "build-svg": "gulp build-svg"
   },
   "author": "Quentin Neyraud",
   "devDependencies": {
@@ -21,6 +22,7 @@
     "css-loader": "^0.26.0",
     "cssnano": "^3.8.1",
     "debug": "^2.3.3",
+    "del": "^2.2.2",
     "eslint": "^3.11.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
@@ -28,8 +30,13 @@
     "eslint-plugin-standard": "^2.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0",
     "node-sass": "^3.13.0",
     "postcss-loader": "^1.1.1",
+    "require-dir": "^0.3.1",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
