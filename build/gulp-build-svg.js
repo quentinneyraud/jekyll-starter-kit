@@ -3,20 +3,19 @@ import svgmin from 'gulp-svgmin'
 import svgstore from 'gulp-svgstore'
 import path from 'path'
 import del from 'del'
-import rename from "gulp-rename"
+import rename from 'gulp-rename'
+import config from '../config/index'
 
-const SVG_PATHS = './src/src-svg/*.svg'
-const SVG_SPRITE_PATH_FILENAME = 'svg.html'
-const SVG_SPRITE_PATH = './src/_includes'
+const paths = config.utils_paths
 
 gulp.task('clean-svg', () => {
-  return del(SVG_SPRITE_PATH + SVG_SPRITE_PATH_FILENAME, {
+  return del(path.resolve(config.svg_sprite_path, config.svg_sprite_name), {
     force: true
   })
 })
 
 gulp.task('build-svg', ['clean-svg'], () => {
-  return gulp.src(SVG_PATHS)
+  return gulp.src(paths.dist(config.svg_paths))
     .pipe(svgmin((file) => {
       const prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -56,6 +55,6 @@ gulp.task('build-svg', ['clean-svg'], () => {
       id: 'base-icon-',
       inlineSvg: true
     }))
-    .pipe(rename(SVG_SPRITE_PATH_FILENAME))
-    .pipe(gulp.dest(SVG_SPRITE_PATH));
+    .pipe(rename(config.svg_sprite_name))
+    .pipe(gulp.dest(paths.dist(config.svg_sprite_path)));
 });

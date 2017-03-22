@@ -1,0 +1,63 @@
+import webpack from 'webpack'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
+import cssnano from 'cssnano'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+
+export default {
+  development: (base) => ({}),
+
+  production: (base, config) => ({
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        beautify: false,
+        mangle: {
+          screw_ie8: true,
+          keep_fnames: true
+        },
+        compress: {
+          screw_ie8: true
+        },
+        comments: false
+      }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false,
+        options: {
+          eslint: {
+            configFile: './.eslintrc'
+          },
+          postcss: {
+            plugins: [
+              cssnano({
+                autoprefixer: {
+                  add: true,
+                  remove: true,
+                  browsers: ['last 2 versions']
+                },
+                discardComments: {
+                  removeAll: true
+                },
+                discardUnused: false,
+                mergeIdents: false,
+                reduceIdents: false,
+                safe: true,
+                sourcemap: true
+              })
+            ]
+          }
+        }
+      }),
+      new CleanWebpackPlugin(['src/assets'], {
+        verbose: true
+      }),
+      new HtmlWebpackPlugin({
+        filename: config.utils_paths.dist('_layouts/default.html'),
+        template: config.utils_paths.client('html/default-layout.html'),
+        cache: true,
+        minify: {
+          minifyCSS: true
+        }
+      })
+    ]
+  })
+}
