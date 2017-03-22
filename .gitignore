@@ -5,3 +5,4 @@ public
 node_modules
 src/assets/*
 .idea
+*.log
