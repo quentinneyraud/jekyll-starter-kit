@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+{% include header.html %}
+
+<main id="barba-wrapper">
+  {{ content }}
+  <div class="overflow-transition"></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<%=htmlWebpackPlugin.files.webpackManifest%>
+</body>
+</html>

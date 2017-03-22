@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html><head><link href="/assets/css/app.f36f9f2cd763905d43e8.css" rel="stylesheet"></head>
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
 
-    {% include header.html %}
+{% include header.html %}
 
-    <main id="barba-wrapper">
-      {{ content }}
-      <div class="overflow-transition"></div>
-    </main>
+<main id="barba-wrapper">
+  {{ content }}
+  <div class="overflow-transition"></div>
+</main>
 
-    {% if jekyll.environment == "production" %}
-    <script type="text/javascript" src="/assets/app.js" charset="utf-8"></script>
-    {% else %}
-    <script type="text/javascript" src="http://localhost:8080/app.js" charset="utf-8"></script>
-    {% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 
-  </body>
+<script type="text/javascript" src="/assets/js/manifest.41811c8b968df9cfa13f.js"></script><script type="text/javascript" src="/assets/js/vendor.41811c8b968df9cfa13f.js"></script><script type="text/javascript" src="/assets/js/app.41811c8b968df9cfa13f.js"></script></body>
 </html>

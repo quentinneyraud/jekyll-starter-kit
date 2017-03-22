@@ -44,10 +44,4 @@
   <meta name="twitter:title" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
   <meta name="twitter:description" content="{{ meta_description }}"/>
   <meta name="twitter:image" content="{{ share_image }}"/>
-
-  {% if jekyll.environment == "production" %}
-  <link rel="stylesheet" href="/assets/main.css">
-  {% else %}
-  <link rel="stylesheet" href="http://localhost:8080/main.css">
-  {% endif %}
 </head>

@@ -1,3 +1,3 @@
 import requireDir from 'require-dir'
 
-requireDir('./gulp')
+requireDir('./build')

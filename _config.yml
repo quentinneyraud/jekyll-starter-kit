@@ -1,7 +1,7 @@
 # Site settings
 title: Jekyll starter
 baseurl: ""
-baseurl_image: "/img"
+baseurl_image: "static/img"
 url: "http://jekyll-starter.quentinneyraud.fr"
 
 # SEO & head
