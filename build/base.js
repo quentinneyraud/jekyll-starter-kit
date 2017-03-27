@@ -23,8 +23,7 @@ const getbase = (config) => {
       publicPath: '/'
     },
     module: {
-      loaders: [
-        {
+      loaders: [{
           test: /\.js$/,
           enforce: 'pre',
           loader: 'eslint-loader',
@@ -48,14 +47,11 @@ const getbase = (config) => {
                 importLoaders: 2
               }
             }, {
-              loader: 'postcss-loader'
-            }, {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
               }
-            }
-            ],
+            }],
           })
         }, {
           test: /\.(png|jpg)$/,

@@ -2,12 +2,34 @@ import webpack from 'webpack'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 import cssnano from 'cssnano'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
   development: (base) => ({}),
 
   production: (base, config) => ({
-    plugins: [
+    module: {
+      loaders: [{
+        test: /\.scss?$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [{
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
+            }
+          }, {
+            loader: 'postcss-loader'
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+          ],
+        })
+      }]
+    }, plugins: [
       new webpack.optimize.UglifyJsPlugin({
         beautify: false,
         mangle: {
