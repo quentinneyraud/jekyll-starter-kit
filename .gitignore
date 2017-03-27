@@ -6,3 +6,4 @@ node_modules
 src/assets/*
 .idea
 *.log
+/src/_layouts/default.html
