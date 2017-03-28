@@ -1,11 +1,11 @@
 export default {
   development: (config) => ({
-
+    publicPath: 'http://localhost:8080/'
   }),
 
   production: (config) => ({
-    assetsNameJs: '[name].[hash]',
-    assetsNameImg: '[name].[hash]',
-    assetsNameCss: '[name].[chunkhash]',
+    assetsNameJs: 'assets/js/[name].[hash].js',
+    assetsNameImg: 'assets/img/[name].[hash].[ext]',
+    assetsNameCss: 'assets/css/[name].[chunkhash].css'
   })
 }

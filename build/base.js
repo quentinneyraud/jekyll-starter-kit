@@ -10,7 +10,8 @@ const getbase = (config) => {
     stats: config.stats,
     devServer: {
       stats: config.stats,
-      port: 8080
+      port: 8080,
+      publicPath: config.publicPath
     },
     name: 'client',
     target: 'web',
@@ -19,8 +20,8 @@ const getbase = (config) => {
     },
     output: {
       path: paths.dist(),
-      filename: `assets/js/${config.assetsNameJs}.js`,
-      publicPath: '/'
+      filename: config.assetsNameJs,
+      publicPath: config.publicPath
     },
     module: {
       loaders: [{
@@ -58,14 +59,14 @@ const getbase = (config) => {
           loader: 'url-loader',
           options: {
             limit: 8192,
-            name: `assets/img/${config.assetsNameImg}.[ext]`
+            name: config.assetsNameImg
           }
         }
       ]
     },
     plugins: [
       new ExtractTextPlugin({
-        filename: `assets/css/${config.assetsNameCss}.css`,
+        filename: config.assetsNameCss,
         allChunks: true
       }),
       new webpack.ProvidePlugin({
