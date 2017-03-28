@@ -20,13 +20,14 @@ const config = {
     version: false,
     reasons: false
   },
+  publicPath: '/',
 
   // ----------------------------------
   // Outputs
   // ----------------------------------
-  assetsNameJs: '[name]',
-  assetsNameImg: '[name]',
-  assetsNameCss: '[name]',
+  assetsNameJs: '[name].js',
+  assetsNameImg: '[name].[ext]',
+  assetsNameCss: '[name].css',
 
   // ----------------------------------
   // SVG Structure

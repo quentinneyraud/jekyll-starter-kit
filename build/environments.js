@@ -3,9 +3,21 @@ import CleanWebpackPlugin from 'clean-webpack-plugin'
 import cssnano from 'cssnano'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import Harddisk from 'html-webpack-harddisk-plugin'
 
 export default {
-  development: (base) => ({}),
+  development: (base, config) => ({
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: config.utils_paths.dist('_layouts/default.html'),
+        template: config.utils_paths.client('html/default-layout.html'),
+        cache: false,
+        alwaysWriteToDisk: true,
+        minify: false
+      }),
+      new Harddisk()
+    ]
+  }),
 
   production: (base, config) => ({
     module: {
