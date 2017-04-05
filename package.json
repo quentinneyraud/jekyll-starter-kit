@@ -64,6 +64,7 @@
     "style-loader": "^0.14.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0",
     "write-file-webpack-plugin": "^4.0.0"
   },
@@ -71,8 +72,6 @@
     "barba.js": "^1.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "domready": "^1.0.8",
-    "gsap": "^1.19.0",
-    "webfontloader": "^1.6.27",
-    "webpack-dev-server": "^2.4.2"
+    "webfontloader": "^1.6.27"
   }
 }
