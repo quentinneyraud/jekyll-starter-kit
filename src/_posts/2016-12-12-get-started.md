@@ -3,7 +3,7 @@ layout: post
 namespace: Post
 title: Get Started
 permalink: get-started/
-background_image: /posts/get-started/ia-art.jpg
+background_image: posts/get-started/ia-art.jpg
 ---
 
 ## Introduction
