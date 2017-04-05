@@ -19,7 +19,7 @@
   <title>{{ title }}</title>
   <meta name="description" content="{{ meta_description }}"/>
   <meta name="mobile-web-app-capable" content="yes"/>
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   <link rel="icon" href="{{ site.favicon | prepend: site.baseurl_image }}" />
 
   <!-- SEO -->
