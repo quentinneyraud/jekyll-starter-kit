@@ -72,7 +72,6 @@
     "bootstrap": "4.0.0-alpha.6",
     "domready": "^1.0.8",
     "gsap": "^1.19.0",
-    "moment": "^2.17.1",
     "webfontloader": "^1.6.27",
     "webpack-dev-server": "^2.4.2"
   }
