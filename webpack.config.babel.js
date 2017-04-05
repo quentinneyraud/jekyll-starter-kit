@@ -1,4 +1,4 @@
 import config from './config/index'
-import build from './build'
+import getBuild from './build'
 
-module.exports = build(config)
+module.exports = getBuild(config)
