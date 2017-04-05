@@ -1,6 +1,6 @@
 export default {
   development: (config) => ({
-    publicPath: 'http://localhost:8080/'
+    publicPath: `http://localhost:${config.port}/`
   }),
 
   production: (config) => ({
