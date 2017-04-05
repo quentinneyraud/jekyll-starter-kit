@@ -5,6 +5,7 @@ const dbg = debug('app:config:base')
 
 const config = {
   env: process.env.NODE_ENV || 'development',
+  port: '8081',
 
   // ----------------------------------
   // Project Structure
@@ -32,7 +33,6 @@ const config = {
   // ----------------------------------
   // SVG Structure
   // ----------------------------------
-
   svg_paths: 'src-svg/*.svg',
   svg_sprite_name: 'svg.html',
   svg_sprite_path: '_includes'

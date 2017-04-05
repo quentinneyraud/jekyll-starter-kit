@@ -10,7 +10,7 @@ const getWebpackConfigBase = (config) => {
     stats: config.stats,
     devServer: {
       stats: config.stats,
-      port: 8080,
+      port: config.port,
       publicPath: config.publicPath
     },
     name: 'client',
