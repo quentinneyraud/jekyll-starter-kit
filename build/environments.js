@@ -81,7 +81,8 @@ export default {
           }
         }
       }),
-      new CleanWebpackPlugin(['src/assets'], {
+      new CleanWebpackPlugin(['assets'], {
+        root: config.utils_paths.dist(),
         verbose: true
       }),
       new HtmlWebpackPlugin({
