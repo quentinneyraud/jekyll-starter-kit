@@ -10,7 +10,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'jekyll serve --watch'",
+      "command": "npm run build-svg && concurrently -r './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'jekyll serve --watch'",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
