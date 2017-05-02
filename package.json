@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "better-npm-run dev",
     "build": "better-npm-run build",
-    "build-svg": "gulp build-svg"
+    "build-svg": "better-npm-run build-svg",
+    "watch-svg": "better-npm-run watch-svg"
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently -r \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
+      "command": "concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
@@ -23,6 +24,20 @@
         "DEBUG": "app:*",
         "NODE_ENV": "production",
         "JEKYLL_ENV": "production"
+      }
+    },
+    "build-svg": {
+      "command": "gulp build-svg",
+      "env": {
+        "DEBUG": "app:*",
+        "NODE_ENV": "production"
+      }
+    },
+    "watch-svg": {
+      "command": "gulp watch-svg",
+      "env": {
+        "DEBUG": "app:*",
+        "NODE_ENV": "development"
       }
     }
   },

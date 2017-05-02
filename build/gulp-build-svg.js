@@ -15,7 +15,7 @@ gulp.task('clean-svg', () => {
 })
 
 gulp.task('build-svg', ['clean-svg'], () => {
-  return gulp.src(paths.dist(config.svg_paths))
+  return gulp.src(paths.client(config.svg_paths))
     .pipe(svgmin((file) => {
       const prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -56,5 +56,10 @@ gulp.task('build-svg', ['clean-svg'], () => {
       inlineSvg: true
     }))
     .pipe(rename(config.svg_sprite_name))
-    .pipe(gulp.dest(paths.dist(config.svg_sprite_path)));
-});
+    .pipe(gulp.dest(paths.dist(config.svg_sprite_path)))
+})
+
+gulp.task('watch-svg', () => {
+  console.log('test', paths.client(config.svg_paths))
+  gulp.watch(paths.client(config.svg_paths), ['build-svg'])
+})

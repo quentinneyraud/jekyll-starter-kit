@@ -7,3 +7,4 @@ src/assets/*
 .idea
 *.log
 /src/_layouts/default.html
+/src/_includes/svg.html
