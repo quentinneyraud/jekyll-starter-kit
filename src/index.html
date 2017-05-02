@@ -21,7 +21,7 @@ meta_description: ~
         <span class="post-date">{{ post.date | date: '%-d/%m/%Y' }}</span>
       </div>
 
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link" data-transition="test">Read more</a>
+      <a href="{{ post.permalink | prepend: site.baseurl }}" class="post-link" data-transition="test">Read more</a>
     </li>
     {% endfor %}
   </ul>

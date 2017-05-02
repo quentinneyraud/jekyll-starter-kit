@@ -10,7 +10,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --host=0.0.0.0' 'jekyll serve --watch'",
+      "command": "npm run build-svg && concurrently -r \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
@@ -18,7 +18,7 @@
       }
     },
     "build": {
-      "command": "npm run build-svg && ./node_modules/webpack/bin/webpack.js && jekyll build",
+      "command": "npm run build-svg && webpack && jekyll build",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "production",
@@ -29,26 +29,28 @@
   "author": "Quentin Neyraud",
   "devDependencies": {
     "babel-core": "^6.24.0",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.4.1",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "v7.0.0-beta.1",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.16.0",
-    "better-npm-run": "^0.0.14",
+    "better-npm-run": "^0.0.15",
     "clean-webpack-plugin": "^0.1.16",
     "concurrently": "^3.1.0",
-    "css-loader": "^0.27.3",
+    "css-loader": "^0.28.0",
     "cssnano": "^3.8.1",
     "debug": "^2.3.3",
     "del": "^2.2.2",
-    "eslint": "^3.11.1",
-    "eslint-config-standard": "^7.0.1",
-    "eslint-loader": "^1.6.3",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-standard": "^2.2.0",
     "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.10.1",
+    "file-loader": "^0.11.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-svgmin": "^1.2.3",
@@ -56,14 +58,15 @@
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.28.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
-    "node-sass": "^4.5.0",
+    "node-sass": "^4.5.2",
     "postcss-loader": "^1.1.1",
     "require-dir": "^0.3.1",
     "rimraf": "^2.5.4",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.14.1",
+    "style-loader": "^0.16.1",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0",
     "write-file-webpack-plugin": "^4.0.0"
   },
@@ -71,9 +74,6 @@
     "barba.js": "^1.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "domready": "^1.0.8",
-    "gsap": "^1.19.0",
-    "moment": "^2.17.1",
-    "webfontloader": "^1.6.27",
-    "webpack-dev-server": "^2.4.2"
+    "webfontloader": "^1.6.27"
   }
 }

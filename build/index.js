@@ -1,13 +1,13 @@
 import debug from 'debug'
 import webpackConfigOverride from './environments'
-import webpackConfigBase from './base'
+import getWebpackConfigBase from './base'
 import WebpackMerge from 'webpack-merge'
 
 const dbg = debug('app:webpack-config')
 
-const getConfig = (config) => {
+const getBuild = (config) => {
   dbg('Creating webpack configuration')
-  const base = webpackConfigBase(config)
+  const base = getWebpackConfigBase(config)
   dbg(`Looking for environment overrides for NODE_ENV "${config.env}".`)
 
   const overrides = webpackConfigOverride[config.env]
@@ -20,4 +20,4 @@ const getConfig = (config) => {
   }
 }
 
-export default getConfig
+export default getBuild
