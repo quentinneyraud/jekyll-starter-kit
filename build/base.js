@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-const getbase = (config) => {
+const getWebpackConfigBase = (config) => {
 
   const paths = config.utils_paths
 
@@ -10,7 +10,7 @@ const getbase = (config) => {
     stats: config.stats,
     devServer: {
       stats: config.stats,
-      port: 8080,
+      port: config.port,
       publicPath: config.publicPath
     },
     name: 'client',
@@ -99,4 +99,4 @@ const getbase = (config) => {
   }
 }
 
-export default getbase
+export default getWebpackConfigBase

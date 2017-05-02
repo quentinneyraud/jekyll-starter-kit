@@ -1,15 +1,15 @@
 # Site settings
 title: Jekyll starter
 baseurl: "/"
-baseurl_image: "/static/img"
+baseurl_image: "/static/img/"
 url: "http://jekyll-starter.quentinneyraud.fr"
 
 # SEO & head
 twitter_username: "@quentin_neyraud"
 twitter_creator: "@quentin_neyraud"
 meta_description: "Jekyll starter is a simple Jekyll project using Barba.js to provide page transition without reload. It also supports Sass & ES6, bundled with Webpack."
-share_image: "/share-image.png"
-favicon: "/favicon.ico"
+share_image: "share-image.png"
+favicon: "favicon.ico"
 
 # Build settings
 markdown: kramdown
