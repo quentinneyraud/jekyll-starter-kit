@@ -91,7 +91,7 @@ const getWebpackConfigBase = (config) => {
         minify: false
       })
     ],
-    devtool: 'cheap-module-eval-source-map',
+    devtool: config.devtool,
     resolve: {
       extensions: ['.js'],
       alias: {}
