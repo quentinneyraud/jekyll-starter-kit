@@ -15,7 +15,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
+      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
