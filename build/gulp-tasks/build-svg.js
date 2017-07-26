@@ -4,7 +4,7 @@ import svgstore from 'gulp-svgstore'
 import path from 'path'
 import del from 'del'
 import rename from 'gulp-rename'
-import config from '../config/index'
+import config from '../../config/index'
 
 const paths = config.utils_paths
 

@@ -1,3 +1,3 @@
 import requireDir from 'require-dir'
 
-requireDir('./build')
+requireDir('./build/gulp-tasks')
