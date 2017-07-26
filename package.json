@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A simple boilerplate for webpack and jekyll integration.",
   "main": "bundle.js",
+  "author": "Quentin Neyraud",
+  "bugs": "https://github.com/quentinneyraud/jekyll-starter-kit/issues",
+  "homepage": "http://jekyll-starter.quentinneyraud.fr",
+  "repository": "https://github.com/quentinneyraud/jekyll-starter-kit/",
   "scripts": {
     "dev": "better-npm-run dev",
     "build": "better-npm-run build",
@@ -11,7 +15,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
+      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
@@ -41,7 +45,6 @@
       }
     }
   },
-  "author": "Quentin Neyraud",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-eslint": "^7.2.1",
