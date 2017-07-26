@@ -21,6 +21,7 @@ const config = {
     version: false,
     reasons: false
   },
+  devtool: 'source-map',
   publicPath: '/',
 
   // ----------------------------------
