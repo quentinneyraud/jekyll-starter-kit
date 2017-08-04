@@ -1,6 +1,5 @@
 import webpack from 'webpack'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
-import cssnano from 'cssnano'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import Harddisk from 'html-webpack-harddisk-plugin'
@@ -52,34 +51,6 @@ export default {
           screw_ie8: true
         },
         comments: false
-      }),
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false,
-        options: {
-          eslint: {
-            configFile: './.eslintrc'
-          },
-          postcss: {
-            plugins: [
-              cssnano({
-                autoprefixer: {
-                  add: true,
-                  remove: true,
-                  browsers: ['last 2 versions']
-                },
-                discardComments: {
-                  removeAll: true
-                },
-                discardUnused: false,
-                mergeIdents: false,
-                reduceIdents: false,
-                safe: true,
-                sourcemap: true
-              })
-            ]
-          }
-        }
       }),
       new CleanWebpackPlugin(['assets'], {
         root: config.utils_paths.dist(),
