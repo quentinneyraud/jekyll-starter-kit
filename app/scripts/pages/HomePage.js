@@ -24,7 +24,7 @@ export default class HomePage extends Page {
       console.log('I will be killed on page leave 😬')
     }, 1000)
 
-    this.addSetInterval(intervalId)
+    this.addInterval(intervalId)
   }
 
   getTransition (options) {
