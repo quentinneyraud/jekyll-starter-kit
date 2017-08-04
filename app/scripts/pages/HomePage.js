@@ -20,6 +20,11 @@ export default class HomePage extends Page {
   onEnter () {
     super.onEnter()
 
+    // globals demo
+    const apiEndpoint = (PRODUCTION) ? 'http://api-prod/' : 'http://api-dev/'
+    console.log(apiEndpoint)
+
+    // addInterval demo
     const intervalId = window.setInterval(() => {
       console.log('I will be killed on page leave 😬')
     }, 1000)
