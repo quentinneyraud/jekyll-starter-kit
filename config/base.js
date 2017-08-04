@@ -29,7 +29,7 @@ const config = {
   // ----------------------------------
   assetsNameJs: '[name].js',
   assetsNameImg: '[name].[ext]',
-  assetsNameCss: '[name].css',
+  assetsNameCss: 'style.css',
 
   // ----------------------------------
   // SVG Structure

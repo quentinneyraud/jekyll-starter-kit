@@ -7,6 +7,6 @@ export default {
     devtool: false,
     assetsNameJs: 'assets/js/[name].[hash].js',
     assetsNameImg: 'assets/img/[name].[hash].[ext]',
-    assetsNameCss: 'assets/css/[name].[chunkhash].css'
+    assetsNameCss: 'assets/css/style.[hash].css'
   })
 }
