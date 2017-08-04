@@ -35,9 +35,7 @@ const getWebpackConfigBase = (config) => {
           exclude: /(node_modules)/,
           loader: 'babel-loader',
           query: {
-            cacheDirectory: true,
-            plugins: ['transform-runtime'],
-            presets: ['es2015', 'stage-0']
+            cacheDirectory: true
           }
         }, {
           test: /\.scss?$/,
