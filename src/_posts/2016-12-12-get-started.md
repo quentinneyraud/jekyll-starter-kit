@@ -20,16 +20,28 @@ Bring all the power of Barba.js to jekyll and simplify transitions and pages cre
 
 ## How to use ?
 
+#### Installation
+
+```bash
+# clone repository
+git clone git@github.com:quentinneyraud/jekyll-starter-kit.git
+
+# install dependencies (npm or yarn)
+cd my-project && yarn
+
+```
+
 #### Scripts
 
 - `npm run dev` hot-reload, js lint
 - `npm run build` build all pages and assets in public folder
+- `npm run clean` clean all ()
 
 #### Create a new page
 
-Create a file `src/pages/demo.html`
+Create a template file `src/pages/demo.html`
 
-``` javascript
+``` markdown
 ---
 layout: page
 title: This is a demo page
@@ -38,7 +50,8 @@ permalink: demo/
 ---
 ```
 
-Create a file `app/scripts/pages/DemoPage.js`
+Create a page class file `app/scripts/pages/DemoPage.js`
+
 ``` javascript
 import Page from './Page'
 
@@ -49,8 +62,13 @@ export default class DemoPage extends Page {
 }
 ```
 
-Set routing between namespace and DemoPage class
+Set routing between namespace and the new DemoPage class
+
 ``` javascript
+// app/scripts/App.js
+
+import DemoPage from './pages/DemoPage'
+
 new BarbaWrapper({
         ...
       })
@@ -61,6 +79,7 @@ new BarbaWrapper({
 ```
 
 Now, you have access to flow and utils methods in DemoPage class
+
 ``` javascript
 onEnter ()
 onEnterCompleted ()
@@ -70,11 +89,12 @@ onLeaveCompleted ()
 initializeElements ()     // called on enter
 initializeEvents ()       // called on enter
 
-addSetInterval ()
+addInterval ()
 addTimeout ()
 clearTimeouts ()          // called on leave completed
 clearIntervals ()         // called on leave completed
 ```
+
 NOTE: Don't forget to call `super` methods
 
 #### BarbaWrapper options
