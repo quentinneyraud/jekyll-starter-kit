@@ -1,20 +1,20 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
+  "extends": [
     "standard"
   ],
-  "env"     : {
-    "browser" : true
+  "plugins": [
+    "dependencies"
+  ],
+  "env": {
+    "browser": true
   },
-  "globals" : {
-    "Action"       : false,
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__DEBUG_NEW_WINDOW__" : false,
-    "__BASENAME__" : false
+  "globals": {
+    "DEVELOPMENT": false,
+    "PRODUCTION": false,
+    "ENVIRONMENT": false
   },
   "rules": {
+    "dependencies/case-sensitive": 1,
     "arrow-parens": 0,
     "no-undef": 0
   }

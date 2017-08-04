@@ -16,7 +16,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"webpack-dev-server --inline --host=0.0.0.0\" \"jekyll serve --watch\"",
+      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"webpack-dev-server\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
@@ -71,6 +71,7 @@
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
+    "eslint-plugin-dependencies": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.4.0",
@@ -84,6 +85,7 @@
     "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
     "inline-manifest-webpack-plugin": "^3.0.1",
+    "ip": "^1.1.5",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "prompt-confirm": "^1.2.0",

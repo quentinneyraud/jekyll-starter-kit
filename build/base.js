@@ -1,22 +1,20 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const getWebpackConfigBase = (config) => {
 
   const paths = config.utils_paths
 
   return {
+    cache: true,
     stats: config.stats,
-    devServer: {
-      stats: config.stats,
-      port: config.port,
-      publicPath: config.publicPath
-    },
+    devtool: config.devtool,
     name: 'client',
     target: 'web',
+    context: paths.base(),
     entry: {
-      app: paths.client('scripts/main.js')
+      app: paths.client('scripts/main.js'),
+      vendorrrr: config.jsVendors
     },
     output: {
       path: paths.dist(),
@@ -65,6 +63,7 @@ const getWebpackConfigBase = (config) => {
       ]
     },
     plugins: [
+      new webpack.DefinePlugin(config.globals),
       new ExtractTextPlugin({
         filename: config.assetsNameCss,
         allChunks: true
@@ -72,10 +71,9 @@ const getWebpackConfigBase = (config) => {
       new webpack.ProvidePlugin({
         debug: 'debug'
       }),
-      new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
-        name: "vendor",
+        name: "vendors",
         minChunks: function(module){
           return module.context && module.context.indexOf("node_modules") !== -1;
         }
@@ -83,15 +81,8 @@ const getWebpackConfigBase = (config) => {
       new webpack.optimize.CommonsChunkPlugin({
         name: "manifest",
         minChunks: Infinity
-      }),
-      new HtmlWebpackPlugin({
-        filename: paths.dist('_layouts/default.html'),
-        template: paths.client('html/default-layout.html'),
-        cache: false,
-        minify: false
       })
     ],
-    devtool: config.devtool,
     resolve: {
       extensions: ['.js'],
       alias: {}

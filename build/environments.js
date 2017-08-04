@@ -1,11 +1,20 @@
 import webpack from 'webpack'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import Harddisk from 'html-webpack-harddisk-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 export default {
   development: (base, config) => ({
+    devServer: {
+      stats: config.stats,
+      port: config.port,
+      publicPath: config.publicPath,
+      host: config.address,
+      watchOptions: {
+        ignored: /node_modules/
+      }
+    },
     plugins: [
       new HtmlWebpackPlugin({
         filename: config.utils_paths.dist('_layouts/default.html'),
@@ -14,7 +23,8 @@ export default {
         alwaysWriteToDisk: true,
         minify: false
       }),
-      new Harddisk()
+      new Harddisk(),
+      new webpack.HotModuleReplacementPlugin(),
     ]
   }),
 
