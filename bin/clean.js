@@ -29,11 +29,16 @@ const FILES_TO_UPDATE = [
   {
     filePath: 'app/styles/main.scss',
     linesToRemove: [
-      '@import \'partials/home\';'
+      '@import \'partials/home\';',
+      '@import \'partials/about\';',
+      '@import \'partials/post\';'
     ]
   }, {
     filePath: 'app/scripts/App.js',
     linesToRemove: [
+      'import HomePage from \'./pages/HomePage\'',
+      'import PostPage from \'./pages/PostPage\'',
+      'import AboutPage from \'./pages/AboutPage\'',
       '.match(\'HomePage\', new HomePage())',
       '.match(\'AboutPage\', new AboutPage())',
       '.match(\'PostPage\', new PostPage())'
