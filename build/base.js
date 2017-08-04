@@ -4,6 +4,12 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 const getWebpackConfigBase = (config) => {
 
   const paths = config.utils_paths
+  const entry = {
+    app: paths.client('scripts/main.js')
+  }
+  if (config.jsVendors && config.jsVendors.length > 0) {
+    entry.vendors = config.jsVendors
+  }
 
   return {
     cache: true,
@@ -12,10 +18,7 @@ const getWebpackConfigBase = (config) => {
     name: 'client',
     target: 'web',
     context: paths.base(),
-    entry: {
-      app: paths.client('scripts/main.js'),
-      vendorrrr: config.jsVendors
-    },
+    entry,
     output: {
       path: paths.dist(),
       filename: config.assetsNameJs,
