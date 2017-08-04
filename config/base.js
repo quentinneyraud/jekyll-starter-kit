@@ -1,18 +1,20 @@
 import debug from 'debug'
 import path from 'path'
+import ip from 'ip'
 
 const dbg = debug('app:config:base')
 
+const env = process.env.NODE_ENV || 'development'
 const config = {
-  env: process.env.NODE_ENV || 'development',
+  env,
+  address: ip.address(), // or 'localhost'
   port: '8081',
+  devtool: 'source-map',
+  publicPath: '/',
 
   // ----------------------------------
-  // Project Structure
+  // Stats
   // ----------------------------------
-  path_base: path.resolve(__dirname, '..'),
-  dir_client: 'app',
-  dir_dist: 'src',
   stats: {
     chunks : false,
     chunkModules : false,
@@ -21,8 +23,18 @@ const config = {
     version: false,
     reasons: false
   },
-  devtool: 'source-map',
-  publicPath: '/',
+
+  // ----------------------------------
+  // Project Structure
+  // ----------------------------------
+  path_base: path.resolve(__dirname, '..'),
+  dir_client: 'app',
+  dir_dist: 'src',
+
+  // ----------------------------------
+  // Inputs
+  // ----------------------------------
+  jsVendors: [],
 
   // ----------------------------------
   // Outputs
@@ -34,9 +46,24 @@ const config = {
   // ----------------------------------
   // SVG Structure
   // ----------------------------------
-  svg_paths: 'src-svg/*.svg',
+  svg_paths: 'svg/*.svg',
   svg_sprite_name: 'svg.html',
-  svg_sprite_path: '_includes'
+  svg_sprite_path: '_includes',
+
+  // ----------------------------------
+  // Images
+  // ----------------------------------
+  limit_image_size: 8000, // 8kb,
+
+  // ----------------------------------
+  // Globals
+  // ----------------------------------
+  // ⚠️ : You have to add all these constants to .eslintrc file
+  globals: {
+    'DEVELOPMENT': JSON.stringify(env === 'development'),
+    'PRODUCTION': JSON.stringify(env === 'production'),
+    'ENVIRONMENT': JSON.stringify(env)
+  }
 }
 
 // ------------------------------------

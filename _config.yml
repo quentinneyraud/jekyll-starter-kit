@@ -15,5 +15,6 @@ favicon: "favicon.ico"
 markdown: kramdown
 source: src
 destination: public
+host: 0.0.0.0
 
 assets_path: '/build/'
