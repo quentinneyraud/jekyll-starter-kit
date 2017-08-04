@@ -12,7 +12,7 @@
     "build": "better-npm-run build",
     "build-svg": "better-npm-run build-svg",
     "watch-svg": "better-npm-run watch-svg",
-    "clean": "better-npm-run clean"
+    "clean": "better-npm-run clean && npm run build"
   },
   "betterScripts": {
     "dev": {
