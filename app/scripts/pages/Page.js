@@ -62,7 +62,7 @@ export default class Page {
    * Add interval and timeout ids, they will be cleared on leave
    */
 
-  addSetInterval (intervalId) {
+  addInterval (intervalId) {
     this.intervals.push(intervalId)
   }
 
