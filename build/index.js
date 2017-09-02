@@ -1,21 +1,22 @@
 import debug from 'debug'
 import webpackConfigOverride from './environments'
-import getWebpackConfigBase from './base'
+import getBaseWebpackConfig from './base'
 import WebpackMerge from 'webpack-merge'
 
-const dbg = debug('app:webpack-config')
+const dbg = debug('app:webpack-config  ')
+dbg.color = debug.colors[4]
 
 const getBuild = (config) => {
-  dbg('Creating webpack configuration')
-  const base = getWebpackConfigBase(config)
-  dbg(`Looking for environment overrides for NODE_ENV "${config.env}".`)
+  dbg('👷‍♂️  Creating webpack configuration')
+  const base = getBaseWebpackConfig(config)
+  dbg(`🕵️‍♂️  Looking for environment overrides for NODE_ENV "${config.env}".`)
 
   const overrides = webpackConfigOverride[config.env]
   if (webpackConfigOverride[config.env]) {
-    debug('Found overrides, applying to default configuration.')
+    dbg('🙋‍♂️  Found overrides, applying to default configuration.')
     return WebpackMerge.smart(base, overrides(base, config))
   } else {
-    debug('No environment overrides found.')
+    dbg('🤷‍♂️  No environment overrides found.')
     return base
   }
 }

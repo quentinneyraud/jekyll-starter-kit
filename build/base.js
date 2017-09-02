@@ -1,7 +1,7 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-const getWebpackConfigBase = (config) => {
+const getBaseWebpackConfig = (config) => {
 
   const paths = config.utils_paths
   const entry = {
@@ -91,4 +91,4 @@ const getWebpackConfigBase = (config) => {
   }
 }
 
-export default getWebpackConfigBase
+export default getBaseWebpackConfig
