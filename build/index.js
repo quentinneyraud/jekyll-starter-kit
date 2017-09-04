@@ -4,7 +4,6 @@ import getBaseWebpackConfig from './base'
 import WebpackMerge from 'webpack-merge'
 
 const dbg = debug('app:webpack-config  ')
-dbg.color = debug.colors[4]
 
 const getBuild = (config) => {
   dbg('👷‍♂️  Creating webpack configuration')

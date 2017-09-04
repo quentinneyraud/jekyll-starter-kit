@@ -3,7 +3,6 @@ import getBaseConfig from './base'
 import configOverride from './environments'
 
 const dbg = debug('app:config  ')
-dbg.color = debug.colors[1]
 
 const getConfig = () => {
   dbg('👷‍♂️  Creating configuration.')

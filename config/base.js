@@ -3,7 +3,6 @@ import path from 'path'
 import ip from 'ip'
 
 const dbg = debug('app:config:base  ')
-dbg.color = debug.colors[2]
 
 const env = process.env.NODE_ENV || 'development'
 const getBaseConfig = () => {

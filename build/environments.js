@@ -6,7 +6,6 @@ import Harddisk from 'html-webpack-harddisk-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const dbg = debug('app:webpack-config:environments  ')
-dbg.color = debug.colors[5]
 
 export default {
   development: (base, config) => ({

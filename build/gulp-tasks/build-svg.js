@@ -8,7 +8,6 @@ import debug from 'debug'
 import getConfig from '../../config/index'
 
 const dbg = debug('app:svgmin  ')
-dbg.color = debug.colors[4]
 
 const config = getConfig()
 const paths = config.utils_paths
