@@ -1,31 +1,53 @@
-@import '../../../node_modules/bootstrap/scss/_mixins.scss';
+// ----------------------------------------------------
+// 1. Core scss files
+// ----------------------------------------------------
 
-//$grid-breakpoints: (
-//  xs: 0,
-//  sm: 544px,
-//  md: 768px,
-//  lg: 992px,
-//  xl: 1200px
-//);
-//@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+// Core variables and mixins
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
 
-//$container-max-widths: (
-//  sm: 576px,
-//  md: 720px,
-//  lg: 940px,
-//  xl: 1140px
-//);
-//@include _assert-ascending($container-max-widths, "$container-max-widths");
+// Reset and dependencies
+@import "../../../node_modules/bootstrap/scss/normalize";
 
-//$grid-columns:               12 !default;
+// ----------------------------------------------------
+// 2. Variable overrides / customisation:
+// @see: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+// ----------------------------------------------------
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  //xxl: 2000px,
+);
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px,
+  //xxl: 1920px,
+);
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+$grid-columns:               12;
 $grid-gutter-width-base:     60px;
-//$grid-gutter-widths: (
-//  xs: $grid-gutter-width-base,
-//  sm: $grid-gutter-width-base,
-//  md: $grid-gutter-width-base,
-//  lg: $grid-gutter-width-base,
-//  xl: $grid-gutter-width-base
-//);
-@import '../../../node_modules/bootstrap/scss/_variables.scss';
-@import '../../../node_modules/bootstrap/scss/utilities/visibility';
-@import '../../../node_modules/bootstrap/scss/_grid.scss';
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
+);
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// ----------------------------------------------------
+// 3. The rest of the required files
+// ----------------------------------------------------
+
+// Grid system
+@import '../../../node_modules/bootstrap/scss/grid';
+@import "../../../node_modules/bootstrap/scss/utilities";
