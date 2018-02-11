@@ -1,22 +1,9 @@
 FROM nginx
 
 # Node
-RUN apt-get update && apt-get install -y curl gnupg
+RUN apt-get update && apt-get install -y curl jekyll git gnupg
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs build-essential
-
-# Ruby
-RUN apt-get -y install ruby ruby-dev rubygems git gcc make \
-	&& git clone https://github.com/rubygems/rubygems.git /home/rubygems/ \
-	&& rm -rf /var/lib/apt/lists/*
-
-WORKDIR /home/rubygems
-
-RUN git submodule update --init && ruby setup.rb \
-	&& gem install jekyll
-
-#RUN gem install jekyll bundler --no-ri --no-rdoc
-#RUN bundle install --path vendor
+RUN apt-get install -y nodejs
 
 RUN mkdir -p /home/tmp
 WORKDIR /home/tmp
