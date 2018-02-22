@@ -7,41 +7,39 @@
 
 {% assign title = page.title | escape | append: ' | ' | append: site.title | escape %}
 {% endstrip %}
-<head>
 
-  <!--DEVICE-->
-  <meta charset="UTF-8"/>
-  <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
-  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
-  <meta name="theme-color" content="#F9F8F6"/>
+<!--DEVICE-->
+<meta charset="UTF-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=Edge"/>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#F9F8F6"/>
 
-  <!--GENERAL INFORMATIONS-->
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ meta_description }}"/>
-  <meta name="mobile-web-app-capable" content="yes"/>
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-  <link rel="icon" href="{{ site.favicon | prepend: site.baseurl_image }}" />
+<!--GENERAL INFORMATIONS-->
+<title>{{ title }}</title>
+<meta name="description" content="{{ meta_description }}"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+<link rel="icon" href="{{ site.favicon | prepend: site.baseurl_image }}" />
 
-  <!-- SEO -->
-  <!-- OPENGRAPH -->
-  <meta property="og:title" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
-  <meta property="og:site_name" content="{{ site.title | escape }}"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="{{ site.url }}"/>
-  <meta property="og:image" content="{{ share_image }}"/>
-  <meta property="og:description" content="{{ meta_description }}"/>
+<!-- SEO -->
+<!-- OPENGRAPH -->
+<meta property="og:title" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
+<meta property="og:site_name" content="{{ site.title | escape }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{ site.url }}"/>
+<meta property="og:image" content="{{ share_image }}"/>
+<meta property="og:description" content="{{ meta_description }}"/>
 
-  <!-- MICRODATA -->
-  <meta itemprop="name" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
-  <meta itemprop="description" content="{{ meta_description }}"/>
-  <meta itemprop="image" content="{{ share_image }}"/>
+<!-- MICRODATA -->
+<meta itemprop="name" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
+<meta itemprop="description" content="{{ meta_description }}"/>
+<meta itemprop="image" content="{{ share_image }}"/>
 
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:site" content="{{ site.twitter_username }}"/>
-  <meta name="twitter:creator" content="{{ site.twitter_creator }}"/>
-  <meta name="twitter:url" content="{{ site.url }}"/>
-  <meta name="twitter:title" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
-  <meta name="twitter:description" content="{{ meta_description }}"/>
-  <meta name="twitter:image" content="{{ share_image }}"/>
-</head>
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="{{ site.twitter_username }}"/>
+<meta name="twitter:creator" content="{{ site.twitter_creator }}"/>
+<meta name="twitter:url" content="{{ site.url }}"/>
+<meta name="twitter:title" content="{{ page.title | escape }} | {{ site.title | escape }}"/>
+<meta name="twitter:description" content="{{ meta_description }}"/>
+<meta name="twitter:image" content="{{ share_image }}"/>

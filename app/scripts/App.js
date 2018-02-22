@@ -1,3 +1,4 @@
+import debug from 'debug'
 import domReady from 'domready'
 import WebFont from 'webfontloader'
 import BarbaWrapper from './BarbaWrapper'
