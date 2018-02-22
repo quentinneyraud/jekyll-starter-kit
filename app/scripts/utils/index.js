@@ -16,6 +16,10 @@ export const getQueryVariable = (variable) => {
   return false
 }
 
+export const getPath = (separator = '/') => {
+  return window.location.pathname.split(separator)
+}
+
 /***
 
  Elements
