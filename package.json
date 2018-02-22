@@ -1,8 +1,7 @@
 {
   "name": "jekyll-starter",
   "version": "1.0.0",
-  "description": "A simple boilerplate for webpack and jekyll integration.",
-  "main": "bundle.js",
+  "description": "A simple boilerplate for barba.js and jekyll integration.",
   "author": "Quentin Neyraud",
   "bugs": "https://github.com/quentinneyraud/jekyll-starter-kit/issues",
   "homepage": "http://jekyll-starter.quentinneyraud.fr",
@@ -24,7 +23,7 @@
       }
     },
     "build": {
-      "command": "npm run build-svg && webpack && jekyll build -q",
+      "command": "npm run build-svg && node build/parcel.babel.js && jekyll build -q",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "production",

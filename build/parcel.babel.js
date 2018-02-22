@@ -1,23 +1,29 @@
 const Bundler = require('parcel-bundler')
 const path = require('path')
 const fs = require('fs')
+const del = require('del')
 
+const env = process.env.NODE_ENV || 'development'
 const entryPoint = path.join(__dirname, '../app/html/default.html')
+
+const isProduction = () => {
+  return env === 'production'
+}
 
 // Bundler options
 const options = {
   outDir: './src/_layouts',
   outFile: 'default.html',
   publicUrl: '/assets',
-  watch: true,
-  cache: true,
+  watch: !isProduction(),
+  cache: !isProduction(),
   cacheDir: '.cache',
-  minify: false,
+  minify: isProduction(),
   target: 'browser',
   https: false,
   logLevel: 3,
   hmrPort: 0,
-  sourceMaps: true,
+  sourceMaps: !isProduction(),
   hmrHostname: '',
   detailedReport: false
 }
@@ -28,15 +34,19 @@ const bundler = new Bundler(entryPoint, options)
  Assets
  **/
 const assetPluginOptions = {
-  typesToMove: ['map', 'js', 'css'],
+  typesToMove: ['js', 'css'],
   assetsFolder: path.resolve(__dirname, '../src/assets')
+}
+if (!isProduction()) {
+  assetPluginOptions.typesToMove.push('map')
 }
 let assetsToMove = []
 
-const createAssetsFolder = () => {
-  if (!fs.existsSync(assetPluginOptions.assetsFolder)) {
-    fs.mkdirSync(assetPluginOptions.assetsFolder)
+const createEmptyAssetsFolder = () => {
+  if (fs.existsSync(assetPluginOptions.assetsFolder)) {
+    del.sync(assetPluginOptions.assetsFolder)
   }
+  fs.mkdirSync(assetPluginOptions.assetsFolder)
 }
 
 const addAsset = (bundle, publicURL) => {
@@ -69,5 +79,5 @@ bundler.on('bundled', (bundle) => {
   })
 })
 
-createAssetsFolder()
+createEmptyAssetsFolder()
 bundler.bundle()
