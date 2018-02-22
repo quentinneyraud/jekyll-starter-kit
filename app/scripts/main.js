@@ -1,4 +1,5 @@
 import App from './App'
+import 'gsap'
 
 /* eslint no-new:0 */
 new App()
