@@ -1,4 +1,5 @@
 import Page from './Page'
+import debug from 'debug'
 import {fixImageSeo, selectClass} from '../utils/index'
 
 const dbg = debug('app:PostPage')

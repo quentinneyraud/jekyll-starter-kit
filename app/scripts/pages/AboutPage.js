@@ -1,4 +1,5 @@
 import Page from './Page'
+import debug from 'debug'
 
 const dbg = debug('app:AboutPage')
 
