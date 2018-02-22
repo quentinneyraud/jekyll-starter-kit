@@ -3,8 +3,6 @@ import domReady from 'domready'
 import WebFont from 'webfontloader'
 import BarbaWrapper from './BarbaWrapper'
 import HomePage from './pages/HomePage'
-import PostPage from './pages/PostPage'
-import AboutPage from './pages/AboutPage'
 
 const DOM_READY_EVENT = 'dom-ready'
 const FONTS_READY_EVENT = 'fonts-ready'
@@ -31,8 +29,6 @@ export default class App {
       refreshOnSameHrefClick: false
     })
       .match('HomePage', new HomePage())
-      .match('AboutPage', new AboutPage())
-      .match('PostPage', new PostPage())
       .start()
   }
 
