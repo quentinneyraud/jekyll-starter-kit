@@ -12,7 +12,7 @@ const isProduction = () => {
 
 // Bundler options
 const options = {
-  outDir: './src/_layouts',
+  outDir: path.resolve('./src/_layouts'),
   outFile: 'default.html',
   publicUrl: '/assets',
   watch: !isProduction(),
@@ -34,14 +34,19 @@ const bundler = new Bundler(entryPoint, options)
  Assets
  **/
 const assetPluginOptions = {
-  typesToMove: ['js', 'css', 'jpg', 'png'],
+  typesToIgnore: ['html'],
   assetsFolder: path.resolve(__dirname, '../src/assets')
-}
-if (!isProduction()) {
-  assetPluginOptions.typesToMove.push('map')
 }
 let assetsToMove = []
 
+// Ignore sourcemaps files on build
+if (isProduction()) {
+  assetPluginOptions.typesToIgnore.push('map')
+}
+
+/**
+ * Delete & then create assets folder
+ */
 const createEmptyAssetsFolder = () => {
   if (fs.existsSync(assetPluginOptions.assetsFolder)) {
     del.sync(assetPluginOptions.assetsFolder)
@@ -49,29 +54,29 @@ const createEmptyAssetsFolder = () => {
   fs.mkdirSync(assetPluginOptions.assetsFolder)
 }
 
-const addAsset = (bundle, publicURL) => {
-  if (assetPluginOptions.typesToMove.indexOf(bundle.type) > -1) {
+/**
+ * Check all bundles
+ * @param bundle
+ */
+const addAsset = (bundle) => {
+  // Check if bundle type is not ignored & if file exists
+  if (assetPluginOptions.typesToIgnore.indexOf(bundle.type) < 0
+      && fs.existsSync(path.resolve(options.outDir, bundle.name))) {
     assetsToMove.push(path.basename(bundle.name))
   }
 
-  bundle.childBundles.forEach(function (bundle) {
-    addAsset(bundle, publicURL)
-  })
+  bundle.childBundles.forEach(bundle => addAsset(bundle))
 }
 
 bundler.on('bundled', (bundle) => {
-  const dir = bundle.entryAsset.options.outDir
-  const publicURL = bundle.entryAsset.options.publicURL
+  // Clear previous assets
   assetsToMove = []
 
-  addAsset(bundle, publicURL)
+  addAsset(bundle)
 
+  // Move all assets from default output folder to the assets folder
   assetsToMove.forEach((assetFilename) => {
-    // Parcel rebuild only changed files
-    if (!fs.existsSync(path.resolve(dir, assetFilename))) {
-      return false
-    }
-    fs.rename(path.resolve(dir, assetFilename), path.resolve(assetPluginOptions.assetsFolder, assetFilename), (err) => {
+    fs.rename(path.resolve(options.outDir, assetFilename), path.resolve(assetPluginOptions.assetsFolder, assetFilename), (err) => {
       if (err) {
         console.log('err', err)
       }
