@@ -34,7 +34,7 @@ const bundler = new Bundler(entryPoint, options)
  Assets
  **/
 const assetPluginOptions = {
-  typesToMove: ['js', 'css'],
+  typesToMove: ['js', 'css', 'jpg', 'png'],
   assetsFolder: path.resolve(__dirname, '../src/assets')
 }
 if (!isProduction()) {
