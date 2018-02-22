@@ -85,6 +85,7 @@
     "barba.js": "^1.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "domready": "^1.0.8",
+    "gsap": "^1.20.4",
     "webfontloader": "^1.6.28"
   }
 }
