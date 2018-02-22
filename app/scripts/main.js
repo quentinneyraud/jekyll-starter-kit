@@ -1,4 +1,3 @@
-import '../styles/main.scss'
 import App from './App'
 
 /* eslint no-new:0 */
