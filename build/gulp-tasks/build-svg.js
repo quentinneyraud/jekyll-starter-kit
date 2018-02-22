@@ -5,12 +5,14 @@ import path from 'path'
 import del from 'del'
 import rename from 'gulp-rename'
 import debug from 'debug'
-import getConfig from '../../config/index'
 
 const dbg = debug('app:svgmin  ')
 
-const config = getConfig()
-const paths = config.utils_paths
+const config = {
+  svg_paths: path.resolve('app/svg/*.svg'),
+  svg_sprite_name: 'svg.html',
+  svg_sprite_path: path.resolve('src/_includes')
+}
 
 const cleanSvg = () => {
   dbg('🗑  Cleaning sprite.')
@@ -20,7 +22,7 @@ const cleanSvg = () => {
 }
 
 const buildSvg = () => {
-  return gulp.src(paths.client(config.svg_paths))
+  return gulp.src(config.svg_paths)
     .on('end', () => {
       dbg(`🔨  ${config.svg_sprite_name} created.`)
     })
@@ -64,12 +66,12 @@ const buildSvg = () => {
       inlineSvg: true
     }))
     .pipe(rename(config.svg_sprite_name))
-    .pipe(gulp.dest(paths.dist(config.svg_sprite_path)))
+    .pipe(gulp.dest(config.svg_sprite_path))
 }
 
 const watchSvg = () => {
-  dbg(`🕶  watching svg source folder : ${paths.client(config.svg_paths)}`)
-  gulp.watch(paths.client(config.svg_paths), buildSvgTask)
+  dbg(`🕶  watching svg source folder : ${config.svg_paths}`)
+  gulp.watch(config.svg_paths, buildSvgTask)
 }
 
 const watchSvgTask = watchSvg
