@@ -101,19 +101,10 @@ export default class BarbaWrapper {
     return {
       start: function () {
         this.newContainerLoading
-          .then(this.transition.bind(this))
+          .then(this.finish.bind(this))
       },
-      transition: function () {
-        new TimelineMax()
-          .to('.overflow-transition', 0.5, {width: window.innerWidth})
-          .set('.overflow-transition', {left: 0})
-          .set(this.oldContainer, {autoAlpha: 0})
-          .set(this.newContainer, {autoAlpha: 1})
-          .to('.overflow-transition', 0.5, {width: 0})
-          .set('.overflow-transition', {right: 0, left: 'auto'})
-          .call(() => {
-            this.done()
-          })
+      finish: function () {
+        this.done()
       }
     }
   }
