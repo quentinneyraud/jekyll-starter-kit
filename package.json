@@ -16,7 +16,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"webpack-dev-server\" \"jekyll serve --watch\"",
+      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"node build/parcel.babel.js\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
