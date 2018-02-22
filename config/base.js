@@ -1,6 +1,5 @@
 import debug from 'debug'
 import path from 'path'
-import ip from 'ip'
 
 const dbg = debug('app:config:base  ')
 
