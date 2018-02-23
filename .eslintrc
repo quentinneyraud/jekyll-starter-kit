@@ -8,11 +8,6 @@
   "env": {
     "browser": true
   },
-  "globals": {
-    "DEVELOPMENT": false,
-    "PRODUCTION": false,
-    "ENVIRONMENT": false
-  },
   "rules": {
     "dependencies/case-sensitive": 1,
     "arrow-parens": 0,
