@@ -7,15 +7,14 @@
   "homepage": "http://jekyll-starter.quentinneyraud.fr",
   "repository": "https://github.com/quentinneyraud/jekyll-starter-kit/",
   "scripts": {
-    "dev": "better-npm-run dev",
-    "build": "better-npm-run build",
+    "dev": "npm run build-svg && better-npm-run dev",
+    "build": "npm run build-svg && better-npm-run build",
     "build-svg": "better-npm-run build-svg",
-    "watch-svg": "better-npm-run watch-svg",
-    "clean": "better-npm-run clean && npm run build"
+    "watch-svg": "better-npm-run watch-svg"
   },
   "betterScripts": {
     "dev": {
-      "command": "npm run build-svg && concurrently -r \"npm run watch-svg\" \"node build/parcel.babel.js\" \"jekyll serve --watch\"",
+      "command": "concurrently -r \"npm run watch-svg\" \"node build/parcel.babel.js\" \"jekyll serve --watch\"",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "development",
@@ -23,7 +22,7 @@
       }
     },
     "build": {
-      "command": "npm run build-svg && node build/parcel.babel.js && jekyll build -q",
+      "command": "node build/parcel.babel.js && jekyll build -q",
       "env": {
         "DEBUG": "app:*",
         "NODE_ENV": "production",
