@@ -9,7 +9,7 @@
 <body>
 
 {% capture svgFileExists %}{% file_exists _includes/svg.html %}{% endcapture %}
-{% if svgFileExists %}
+{% if svgFileExists == true %}
 <div class="svg-list">
   {% include svg.html %}
 </div>
